@@ -1,24 +1,3 @@
-# README
+# Bienvenus sur ma super App de gossips entre amis
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Pour voir l'app déployée, c'est [par ici](https://justikro-hacking-gossip.herokuapp.com/)
