@@ -1,0 +1,11 @@
+<h1> Créer nouvel Gossip </h1>
+
+<%= form_tag (gossips_path) do %>
+ 
+<%= render 'form' %>
+
+<p> <%= submit_tag 'Je bitche'%></p>
+
+<% end %>
+
+<p> <%= link_to('Voir tous les gossips', gossips_path) %> </p> 

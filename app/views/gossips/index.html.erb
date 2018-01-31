@@ -1,0 +1,25 @@
+<h1> Retrouvez l'ensemble des Gossips </h1>
+
+
+<table>
+  <tr>
+    <th>Auteur</th>
+    <th>Gossip</th>
+  </tr>
+
+  <% @gossips.each do |gossip| %> 
+
+    <tr>
+      <td><%= gossip.anonymous_author %></td>
+      <td><%= gossip.content %></td>
+      <td><%= link_to "Voir le gossip", gossip_path(gossip) %></td>
+      <td><%= link_to "Editer le gossip", edit_gossip_path(gossip) %></td>
+      <td> <%= link_to "Supprimer le gossip", gossip_path(gossip),
+              method: :delete,
+              data: { confirm: 'Etes-vous sûr ?' } %> </td>
+
+    </tr>
+  <% end %>
+</table>
+
+<p> <%= link_to('Un nouveau gossip ?', new_gossip_path ) %> </p> 
