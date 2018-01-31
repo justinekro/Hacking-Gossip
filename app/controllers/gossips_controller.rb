@@ -1,4 +1,4 @@
-require 'pry'
+
 class GossipsController < ApplicationController
 	
 	def index
