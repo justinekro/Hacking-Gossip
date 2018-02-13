@@ -10,10 +10,10 @@ class GossipsController < ApplicationController
 	end
 	
 	def create
-
 		@gossip = Gossip.new(gossip_params)
+		@gossip.user = current_user
 		@gossip.save
-		redirect_to @gossip
+		redirect_to gossips_path
 	end
 
 	def show
