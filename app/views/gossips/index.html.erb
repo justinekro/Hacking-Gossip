@@ -1,10 +1,13 @@
 <h1> Retrouvez l'ensemble des Gossips </h1>
 
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Auteur</th>
     <th>Gossip</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
   <% @gossips.each do |gossip| %> 
@@ -22,4 +25,4 @@
   <% end %>
 </table>
 
-<p> <%= link_to('Un nouveau gossip ?', new_gossip_path ) %> </p> 
+<p class = "text-center"> <%= link_to('Un nouveau gossip ?', new_gossip_path, class: "btn btn-success") %> </p> 
