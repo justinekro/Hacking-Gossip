@@ -2,17 +2,20 @@
 
 <h1> Créer nouvel Gossip </h1>
 
-<div class= "container">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_tag (gossips_path) do %>
  
   <p> <%= label_tag 'content', "Votre gossip" %> </p>
   <p> <%= text_area_tag 'content' %> </p>
 
-<p> <%= submit_tag 'Je bitche', class: "btn btn-primary"%></p>
-
+<p> <%= submit_tag 'Je bitche', class: "btn btn-success"%></p>
+<p> <%= link_to('Voir tous les gossips', gossips_path) %> </p> 
+</div>
+</div>
 <% end %>
 
-<p> <%= link_to('Voir tous les gossips', gossips_path) %> </p> 
+
 
 </div>
 
