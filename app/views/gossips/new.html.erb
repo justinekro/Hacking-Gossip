@@ -3,7 +3,8 @@
 <div class= "container">
 <%= form_tag (gossips_path) do %>
  
-<%= render 'form' %>
+  <p> <%= label_tag 'content', "Votre gossip" %> </p>
+  <p> <%= text_area_tag 'content' %> </p>
 
 <p> <%= submit_tag 'Je bitche', class: "btn btn-primary"%></p>
 

@@ -19,6 +19,7 @@
       <td><%= gossip.content %></td>
       <td><%= gossip.created_at.strftime("%d-%m-%Y") %></td>
       <td><%= link_to "Voir le gossip", gossip_path(gossip) %></td>
+      
       <% if current_user == gossip.user %>
       <td><%= link_to "Editer mon gossip", edit_gossip_path(gossip) %></td>
       <td> <%= link_to "Supprimer mon gossip", gossip_path(gossip),

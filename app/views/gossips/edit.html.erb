@@ -4,7 +4,8 @@
 
 <%= form_tag gossip_path(@gossip), method: :put do %>
  
-<%= render 'form' %>
+  <p> <%= label_tag 'content', "Votre gossip" %> </p>
+  <p> <%= text_area_tag(:content, nil, value: @gossip.user) %> </p>
  
 <%= submit_tag "Modifier mon gossip"%>
 
