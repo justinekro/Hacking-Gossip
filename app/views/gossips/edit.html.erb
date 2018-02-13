@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <% if current_user == @gossip.user %>
 
 <h1> Editer mon gossip </h1>
@@ -5,7 +6,7 @@
 <%= form_tag gossip_path(@gossip), method: :put do %>
  
   <p> <%= label_tag 'content', "Votre gossip" %> </p>
-  <p> <%= text_area_tag(:content, nil, value: @gossip.user) %> </p>
+  <p> <%= text_area_tag(:content, nil, value: @gossip.content) %> </p>
  
 <%= submit_tag "Modifier mon gossip"%>
 

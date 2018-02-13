@@ -1,3 +1,5 @@
+<% if user_signed_in? %>
+
 <h1> Créer nouvel Gossip </h1>
 
 <div class= "container">
@@ -13,3 +15,12 @@
 <p> <%= link_to('Voir tous les gossips', gossips_path) %> </p> 
 
 </div>
+
+<% else %>
+
+<h1> Veuillez vous identifier pour créer un nouveau gossip</h1>
+
+<p class = "text-center"> <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary" %> or <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success" %> 
+</p>
+
+<% end %>

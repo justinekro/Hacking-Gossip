@@ -11,7 +11,6 @@ RSpec.describe "devise/registrations/new/html.erb", type: :request do
   	assert_redirected_to root_path
   end
 
-  # une fois qu'un utilisateur s'inscrit ou se login, il doit être redirigé vers l'index des gossip
   it 'redirects to index page after log in' do
   	user = User.create!(username:"salut", email: "coucou@gmail.com", password: "coucou", sign_up_code:"GOSSIP2018")
   	post '/users/sign_in', params: {user: {email: "coucou@gmail.com", password: "coucou", remember_me: "0"}}
