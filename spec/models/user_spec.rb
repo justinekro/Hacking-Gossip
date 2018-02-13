@@ -1,21 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe "devise/registrations/new/html.erb", type: :request do
-	it 'prevents from subscribing without code' do
-  	post '/users', params: {username: "coucou", email: "coucou@gmail.com", password: "coucou", sign_up_code:""}
-		expect(response.body).to include("Sign up code is not included in the list")
-  end
+RSpec.describe User, type: :model do
+  it "validates username presence" do
+  	user = User.new(username: "", email:"marc@gmail.com", password:"coucou", sign_up_code:"GOSSIP2018").save
+  	expect(user).to eq(false)
+ 		end
 
-  it 'allows to subscribe with the right code' do
-  	post '/users', params: {username: "coucou", email: "coucou@gmail.com", password: "coucou", sign_up_code:"GOSSIP2017"}
-  	expect(response).to have_http_status(200)
-  end
+ 	it "validates email presence" do
+  	user = User.new(username: "marc", email:"", password:"coucou", sign_up_code:"GOSSIP2018").save
+  	expect(user).to eq(false)
+ 	end	
 
-#  it 'redirects subscribed member to index' do
-#  	post '/users', params: {username: "coucou", email: "coucou@gmail.com", password: "coucou", sign_up_code:"GOSSIP2017"}
-# 		expect(response.location).to eq(root_path)
+ 	it "validates email uniqueness" do
+  	user = User.create!(username: "marc", email:"marc@gmail.com", password:"coucou", sign_up_code:"GOSSIP2018")
+  	user1 = User.new(username: "marc", email:"", password:"coucou", sign_up_code:"GOSSIP2018").save
+  	expect(user1).to eq(false)
+ 	end	
 
-#		expect(response).to redirect_to root_path
-#  end
+ 	it "validates password presence" do
+  	user = User.new(username: "marc", email:"marc@gmail.com", password:"", sign_up_code:"GOSSIP2018").save
+  	expect(user).to eq(false)
+ 	end	
 end
-
