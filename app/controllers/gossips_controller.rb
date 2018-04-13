@@ -2,9 +2,23 @@
 class GossipsController < ApplicationController
 	
 	def index
-		@gossips = Gossip.all
+		search = params[:query].present? ? params[:query] : nil
+		@gossips = if search 
+			Gossip.search(search)
+		else 
+			Gossip.all
+		end
 	end
 
+
+	def autocomplete
+		render json: Gossip.search(params[:query], {
+			fields: ["content"],
+			limit: 10,
+			autocomplete: true,
+			}).map(&:content)
+	end
+	
 	def new
 		@gossip = Gossip.new 
 	end

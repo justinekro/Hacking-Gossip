@@ -6,26 +6,21 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-<%= form_tag gossips_path, method: :get, class: "form-inline", role:"search" do %>
+<%= form_tag search_path do %>
  
   <div class= "input-group">
-    <p> <%= text_field_tag :query,
-    params[:query], 
-    id:"gossips_search", 
-    class: 'form-control typeahead',
-    placeholder: "Recherchez votre gossip ici"%> 
-    </p>
-  
-    <div class="input-group-btn search-panel"> 
-      <%= link_to 'Clear', root_path, class: "btn btn-default"%>
-      <%= submit_tag 'Je cherche !', class: "btn btn-default"%>
-    </div>
-  </div>
-<% end %>
-</div>
-</div>
+  	<p> <%= text_field_tag :query,
+		params[:query], 
+		id:"gossips_search", 
+		autocomplete: :off,
+		class: 'form-control',
+		placeholder: "Recherchez votre gossip ici"%> 
+  	</p>
 
-<br>
+	<p> <%= submit_tag 'Je bitche', class: "btn btn-success"%></p>
+  </div>
+</div>
+<% end %>
 
 <table class="table table-striped">
   <tr>
@@ -55,17 +50,4 @@
     </tr>
   <% end %>
 </table>
-
-<p class = "text-center"> <%= link_to('Un nouveau gossip ?', new_gossip_path, class: "btn btn-success") %> </p> 
-
-<p class = "text-center"> <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
-
-<% else %>
-
-<h1> Vous souhaitez découvrir nos gossips ? </h1>
-
-<p class = "text-center"> <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary" %> or <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success" %> 
-</p>
-
 <% end %>
-
